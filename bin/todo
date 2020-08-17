@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if test $# = 0; then
+	test -f .todo && cat .todo
+else
+	echo "$@" > .todo
+fi
+
+

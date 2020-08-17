@@ -1,0 +1,48 @@
+#!/bin/sh
+
+full=$(cat /sys/class/power_supply/BAT0/energy_full)
+now=$(cat /sys/class/power_supply/BAT0/energy_now)
+status=$(cat /sys/class/power_supply/BAT0/status)
+
+unicodec0=' '
+unicodec1='▁'
+unicodec2='▂'
+unicodec3='▃'
+unicodec4='▄'
+unicodec5='▅'
+unicodec6='▆'
+unicodec7='▇'
+unicodec8='█'
+asciic0=' '
+asciic1='.'
+asciic2=','
+asciic3='_'
+asciic4='-'
+asciic5=':'
+asciic6=';'
+asciic7='|'
+asciic8='#'
+
+cs=unicodec
+
+while test $# -gt 0; do
+	case "$1" in
+	-c)
+		echo "$status"
+		exit 0;;
+	-u)
+		cs=unicodec;;
+	-a)
+		cs=asciic;;
+	-p)
+		echo "$((100 * now / full))%"
+		exit;;
+	*)
+		echo >&2 "Usage: $0 [-c] [-u] [-a] [-p]"
+		exit 1;;
+	esac
+	shift
+done
+
+eval "echo \$$cs$((8 * now / full))"
+
