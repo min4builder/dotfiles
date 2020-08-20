@@ -216,6 +216,9 @@ vis.ftdetect.filetypes = {
 	julia = {
 		ext = { "%.jl$" },
 	},
+	lake = {
+		ext = { "%.lk$", "%.lh$" },
+	},
 	latex = {
 		ext = { "%.bbl$", "%.cls$", "%.dtx$", "%.ins$", "%.ltx$", "%.tex$", "%.sty$" },
 		mime = { "text/x-tex" },
@@ -299,9 +302,6 @@ vis.ftdetect.filetypes = {
 	},
 	pkgbuild = {
 		ext = { "^PKGBUILD$" },
-	},
-	plang = {
-		ext = { "%.pp$", "%.ph$" },
 	},
 	pony = {
 		ext = { "%.pony$" },

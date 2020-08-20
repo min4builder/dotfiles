@@ -4,7 +4,7 @@ local l = require('lexer')
 local token, word_match = l.token, l.word_match
 local P, R, S = lpeg.P, lpeg.R, lpeg.S
 
-local M = {_NAME = 'plang'}
+local M = {_NAME = 'lake'}
 
 -- Whitespace.
 local ws = token(l.WHITESPACE, l.space^1)
@@ -66,11 +66,11 @@ local type = token(l.TYPE, word_match{
 local label = token(l.LABEL, l.starts_line(l.word * ':'))
 
 -- Identifiers.
-local identifier = token(l.IDENTIFIER, l.word)
+local identifier = token(l.IDENTIFIER, l.word * P'?'^-1)
 
 -- Operators.
 local operator = token(l.OPERATOR,
-  S('+-/*%<>~!=^&|?~:;,.()[]{}#') +
+  S('+-/*%<>~!=^&|~:;,.()[]{}#') +
   word_match{ 'sizeof', 'alignof' }
 )
 
