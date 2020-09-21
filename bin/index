@@ -1,0 +1,13 @@
+#!/bin/sh
+
+cd
+
+cat INDEXES | grep "$1" | while read dir; do
+	echo "--- $dir ---"
+	if [ -d "$dir" ]; then
+		cat "$dir/INDEX"
+	else
+		cat "$dir"
+	fi
+done | "${PAGER:-${EDITOR:-cat}}" -
+

@@ -8,6 +8,7 @@ export ADDPATH="$ROOT/bin:$HOME/bin"
 export PATH="$ADDPATH:${PATH#$ADDPATH:}"
 export ENV="$HOME/.profile"
 export EDITOR=vis VISUAL=vis
+export PAGER=less
 
 export QT_QPA_PLATFORM_PLUGIN=wayland
 
