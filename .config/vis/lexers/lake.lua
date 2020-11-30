@@ -37,7 +37,7 @@ local storage_class = word_match{
 
 local type_qualifier = word_match{
   'mut', 'restrict', 'volatile',
-}
+} + P('#') * l.word
 
 local function_specifier = word_match{
   'inline', 'noreturn',

@@ -6,9 +6,10 @@ set $right l
 
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $term alacritty
-set $web brave
+set $web chromium
 
-xwayland force
+xwayland disable
+
 exec $web
 assign [window_role="browser"] 1
 
@@ -30,6 +31,8 @@ input type:keyboard {
 }
 
 output eDP-1 disable
+#output HDMI-A-1 mode 1920x1080@60Hz
+output HDMI-A-1 scale 2 scale_filter linear
 
     bindsym $mod+Return exec $term
     bindsym $mod+t exec $web

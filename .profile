@@ -9,6 +9,7 @@ export PATH="$ADDPATH:${PATH#$ADDPATH:}"
 export ENV="$HOME/.profile"
 export EDITOR=vis VISUAL=vis
 export PAGER=less
+export BROWSER=chromium
 
 export QT_QPA_PLATFORM_PLUGIN=wayland
 
