@@ -1,0 +1,3 @@
+[submodule ".config/vis/plugins/vis-cursors"]
+	path = .config/vis/plugins/vis-cursors
+	url = https://github.com/erf/vis-cursors

@@ -2,19 +2,12 @@
 
 cd
 
-a= b=
-if [ "$PAGER" = less ] || [ "${PAGER:-${EDITOR:-cat}}" = cat ]; then
-	a="[7m"
-	b="[0m"
-fi
+pager=${EDITOR:-${PAGER:-cat}}
 
-cat INDEXES | grep "$1" | while read dir; do
-	echo "$a--- $dir ---$b"
+< INDEXES grep -F "$1" | while read dir; do
 	if [ -d "$dir" ]; then
-		cat "$dir/INDEX"
-	else
-		cat "$dir"
+		dir="$dir/INDEX"
 	fi
-	echo
-done | if [ "$PAGER" = less ]; then less -R -; else "${PAGER:-${EDITOR:-cat}}" -; fi
+	"$pager" "$dir" </dev/tty
+done
 

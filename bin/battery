@@ -24,12 +24,19 @@ asciic7='|'
 asciic8='#'
 
 cs=unicodec
+case "$status" in
+Full) c=;;
+Charging) c=\+;;
+*) c=\-;;
+esac
+
+fmt='$((100 * now / full))% $c$(eval echo "\$$cs$((8 * now / full))")'
 
 while test $# -gt 0; do
 	case "$1" in
 	-c)
 		echo "$status"
-		exit 0;;
+		exit;;
 	-u)
 		cs=unicodec;;
 	-a)
@@ -44,5 +51,5 @@ while test $# -gt 0; do
 	shift
 done
 
-eval "echo \$$cs$((8 * now / full))"
+eval "echo \"$fmt\""
 

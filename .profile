@@ -31,7 +31,7 @@ prompt_git_branch() {
 	*) ;;
 	esac
 }
-export PS1="$(print '\001\r\001\033[1m\001')r \$(date +'%H:%M') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(print '\001\033[0m\001') \$(todo)
+export PS1="$(print '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(print '\001\033[0m\001') \$(todo)
 "
 
 lc() {
@@ -46,5 +46,7 @@ if ! $_login; then
 	[ -f ~/.lastpwd ] && cd "$(cat ~/.lastpwd)"
 	lc
 	print "\\n\\033[1mWelcome, $USER\\033[0m\\n"
+else
+	sfeed_plain /u/.sfeed/feeds/* | sort -r > ~/rss
 fi
 

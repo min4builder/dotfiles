@@ -25,41 +25,37 @@ local number = token(l.NUMBER, (l.float * P('f')^-1) +
 
 -- Preprocessor.
 local preproc_word = word_match{
-  'define', 'import', 'line', 'undef'
+  'define', 'import', 'undef'
 }
 
 local preproc = token(l.PREPROCESSOR, l.starts_line(S'\t '^0 * preproc_word))
 
 -- Keywords.
 local storage_class = word_match{
-  'typedef', 'pub', 'static', 'auto', 'register',
-}
-
-local type_qualifier = word_match{
-  'mut', 'restrict', 'volatile',
-} + P('#') * l.word
-
-local function_specifier = word_match{
-  'inline', 'noreturn',
+  'type', 'pub', 'static', 'auto', 'register',
 }
 
 local keyword = token(l.KEYWORD, word_match{
-  'asm', 'break', 'case', 'continue', 'default', 'do', 'else', 'enum', 'for',
-  'goto', 'if', 'return', 'switch', 'while',
-  'alignas', '_Generic', 'static_assert',
-} + storage_class + type_qualifier + function_specifier)
+  'break', 'case', 'continue', 'default', 'do', 'else', 'enum', 'for', 'goto',
+  'if', 'inline', 'return', 'switch', 'while',
+  '_Generic', 'static_assert',
+} + storage_class)
 
 -- Constants.
 local constant = token(l.CONSTANT, word_match{ 'true', 'false', 'nil', } +
   P('__') * (l.alnum + '_')^0
+  + (l.word - (l.upper + l.digit + '_')^0 * l.lower)
 )
 
 -- Types.
 local type = token(l.TYPE, word_match{
-  'bool', 'char', 'rune', 'int', 'long', 'uint', 'ulong',
-  'struct', 'union', 'void'} +
-  S('uif') * l.dec_num^1
+  'bool', 'char', 'rune', 'int', 'long', 'mut', 'noreturn', 'uint', 'ulong',
+  'struct', 'union', 'void'}
+  + S('uif') * l.dec_num^1 + l.upper * (l.alnum + '_')^0 * P'?'^-1 + P'?'
 )
+
+-- Pragmas.
+local pragma = token(l.PREPROCESSOR, '#' * l.word * P'?'^-1 + '#[' * (l.any - ']')^0 * ']')
 
 -- Labels.
 -- FIXME: Accept whitespace before label.
@@ -78,8 +74,9 @@ M._rules = {
   {'whitespace', ws},
   {'comment', comment},
   {'keyword', keyword},
-  {'type', type},
   {'constant', constant},
+  {'type', type},
+  {'pragma', pragma},
   {'operator', operator},
   {'label', label},
   {'preproc', preproc},

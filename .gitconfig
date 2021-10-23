@@ -3,3 +3,7 @@ name = Lucas Ieks
 email = lieks124@gmail.com
 [pull]
 	rebase = false
+[init]
+	defaultBranch = master
+[credential]
+	helper = store

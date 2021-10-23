@@ -1,4 +1,5 @@
 require 'vis'
+require 'plugins.vis-cursors'
 
 vis.events.subscribe(vis.events.INIT, function()
 	-- Your global configuration options

@@ -7,8 +7,9 @@ set $right l
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $term alacritty
 set $web chromium
-
-xwayland disable
+set $screenshot grim -g "$(slurp)"
+set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
+set $stop_screencast killall -INT wf-recorder
 
 exec $web
 assign [window_role="browser"] 1
@@ -31,11 +32,13 @@ input type:keyboard {
 }
 
 output eDP-1 disable
-#output HDMI-A-1 mode 1920x1080@60Hz
-output HDMI-A-1 scale 2 scale_filter linear
 
     bindsym $mod+Return exec $term
     bindsym $mod+t exec $web
+
+    bindsym $mod+Shift+s exec $screenshot
+    bindsym $mod+Ctrl+s exec $screencast
+    bindsym $mod+Ctrl+Shift+s exec $stop_screencast
 
     bindsym $mod+Shift+q kill
 
@@ -124,7 +127,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 60; done
+    status_command while echo "$(battery) $(date +'%Y-%m-%d %I:%M %p')"; do sleep 60; done
 
     colors {
         statusline #ffffff
