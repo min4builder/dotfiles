@@ -13,13 +13,11 @@ set $stop_screencast killall -INT wf-recorder
 
 exec $web
 assign [app_id="librewolf"] 1
-for_window [app_id="librewolf"] fullscreen enable
 
 xwayland disable
 
 font monospace 12
 default_border pixel 1
-workspace_layout tabbed
 hide_edge_borders both
 
 input type:touchpad {
