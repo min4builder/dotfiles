@@ -6,13 +6,15 @@ set $right l
 
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $term alacritty
-set $web chromium
+set $web "$BROWSER"
 set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
 set $stop_screencast killall -INT wf-recorder
 
 exec $web
-assign [window_role="browser"] 1
+assign [app_id="librewolf"] 1
+
+xwayland disable
 
 font monospace 12
 default_border pixel 2

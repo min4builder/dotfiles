@@ -24,5 +24,6 @@ feeds() {
 	feed "cgpgrey" "https://www.youtube.com/feeds/videos.xml?channel_id=UC2C_jShtL725hvbm1arSV9w"
 	feed "mumbo" "https://www.youtube.com/feeds/videos.xml?channel_id=UChFur_NwVSbUozOcF_F2kMg"
 	feed "minutephysics" "https://www.youtube.com/feeds/videos.xml?channel_id=UCUHW94eEFW7hkUMVaZz4eDg"
+	feed "shadiversity" "https://www.youtube.com/feeds/videos.xml?channel_id=UCkmMACUKpQeIxN9D9ARli1Q"
 	feed "xkcd" "https://xkcd.com/atom.xml" "https://xkcd.com"
 }
