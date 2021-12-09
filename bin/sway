@@ -8,8 +8,12 @@ export XKB_DEFAULT_LAYOUT=us,br
 export XKB_DEFAULT_VARIANT=dvorak,
 export XKB_DEFAULT_OPTIONS=compose:ralt,grp:menu_toggle
 
-export XDG_DESKTOP_DIR="$HOME"
-export XDG_DOWNLOAD_DIR="$HOME"
+. ~/.config/user-dirs.dirs
+export XDG_DESKTOP_DIR
+export XDG_DOWNLOAD_DIR
+
+# libseat isn't built with builtin backend enabled on Arch
+#export LIBSEAT_BACKEND=builtin
 
 pipewire &
 pipewire-pulse &
