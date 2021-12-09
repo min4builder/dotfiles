@@ -1,0 +1,7 @@
+pkgname=user
+pkgver=`sha1sum packages | cut -d' ' -f1`
+pkgrel=1
+arch=('any')
+source=(packages)
+cksums=('SKIP')
+depends=(`cat packages`)
