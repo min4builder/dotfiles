@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sfeed_update
+sfeed_plain ~/.sfeed/feeds/* | sort -r > ~/rss
