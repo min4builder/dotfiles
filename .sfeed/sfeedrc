@@ -25,5 +25,8 @@ feeds() {
 	feed "mumbo" "https://www.youtube.com/feeds/videos.xml?channel_id=UChFur_NwVSbUozOcF_F2kMg"
 	feed "minutephysics" "https://www.youtube.com/feeds/videos.xml?channel_id=UCUHW94eEFW7hkUMVaZz4eDg"
 	feed "shadiversity" "https://www.youtube.com/feeds/videos.xml?channel_id=UCkmMACUKpQeIxN9D9ARli1Q"
+	feed "disillusion" "https://www.youtube.com/feeds/videos.xml?channel_id=UCEOXxzW2vU0P-0THehuIIeg"
+	feed "stuffwithstuff" "https://journal.stuffwithstuff.com/atom.xml"
 	feed "xkcd" "https://xkcd.com/atom.xml" "https://xkcd.com"
+	feed "aurora" "https://comicaurora.com/feed/" "https://comicaurora.com/"
 }

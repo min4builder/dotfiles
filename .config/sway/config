@@ -4,8 +4,9 @@ set $down j
 set $up k
 set $right l
 
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu bemenu-run | xargs swaymsg exec
 set $term alacritty
+set $whatsapp alacritty --class whatsapp -e whatscli
 set $web "$BROWSER"
 set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
@@ -14,11 +15,13 @@ set $stop_screencast killall -INT wf-recorder
 exec $web
 assign [app_id="librewolf"] 1
 
-xwayland disable
+exec $whatsapp
+assign [app_id="whatsapp"] 10
 
 font monospace 12
 default_border pixel 1
 hide_edge_borders both
+floating_maximum_size -1 x -1
 
 input type:touchpad {
 	tap enabled
@@ -27,11 +30,6 @@ input type:touchpad {
 }
 input type:pointer {
 	left_handed enabled
-}
-input type:keyboard {
-	xkb_layout us,br
-	xkb_variant dvorak,
-	xkb_options compose:ralt,grp:menu_toggle
 }
 
 output eDP-1 disable
@@ -126,9 +124,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
     mode hide
-    height 25
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.

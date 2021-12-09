@@ -4,15 +4,12 @@ else
 	_login=false
 fi
 export ROOT="$HOME/local"
-export ADDPATH="$ROOT/bin:$HOME/bin"
+export ADDPATH="$HOME/pkg/bin:$HOME/bin"
 export PATH="$ADDPATH:${PATH#$ADDPATH:}"
 export ENV="$HOME/.profile"
 export EDITOR=vis VISUAL=vis
 export PAGER=less
 export BROWSER=librewolf
-
-export MOZ_ENABLE_WAYLAND=1 MOZ_DBUS_REMOTE=1
-export QT_QPA_PLATFORM_PLUGIN=wayland
 
 ulimit -c unlimited
 
