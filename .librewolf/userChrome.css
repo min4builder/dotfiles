@@ -1,0 +1,17 @@
+#tabbrowser-tabs {
+	--user-tab-rounding: 1ex;
+}
+.tab-background {
+	border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important;
+	margin-block: 1px 0 !important;
+}
+#scrollbutton-up, #scrollbutton-down {
+	border-top-width: 1px !important;
+	border-bottom-width: 0 !important;
+}
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+	margin: 0px max(calc(var(--user-tab-rounding) - 3px), 0px) !important;
+}
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+	margin-top: calc(var(--tab-min-height) - 2px) !important;
+}
