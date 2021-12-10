@@ -4,6 +4,7 @@ alsa-firmware
 alsa-utils-runit
 bc
 bemenu
+byacc
 catgirl
 cgmnlm
 chaotic-keyring
@@ -25,6 +26,7 @@ librewolf
 linux
 linux-firmware
 llvm9
+make
 man-db
 man-pages
 mksh
@@ -35,11 +37,19 @@ openbsd-netcat
 openresolv
 pacman-contrib
 pacutils
-pulsemixer
+patch
+pipewire
+pipewire-alsa
+pipewire-media-session
+pipewire-pulse
+pkgconf
+python-pygments
 rr
+sfeed
 slurp
 stack-static
 strace
+sudo
 sway
 swaylock
 syslinux

@@ -16,7 +16,7 @@ export XDG_DOWNLOAD_DIR
 #export LIBSEAT_BACKEND=builtin
 
 pipewire &
-pipewire-pulse &
 pipewire-media-session &
+pipewire-pulse &
 
-exec dbus-run-session -- /usr/bin/sway
+exec dbus-run-session -- /usr/bin/sway "$@"

@@ -10,6 +10,7 @@ export ENV="$HOME/.profile"
 export EDITOR=vis VISUAL=vis
 export PAGER=less
 export BROWSER=librewolf
+export XDG_RUNTIME_DIR="$HOME/.local/run"
 
 ulimit -c unlimited
 
