@@ -1,4 +1,4 @@
-#!/bin/awk -f
+#!/usr/bin/awk -f
 # This is free and unencumbered software released into the public domain
 # See file LICENSE or refer to <http://unlicense.org/>
 #

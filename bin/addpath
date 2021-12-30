@@ -1,8 +1,0 @@
-#!/bin/sh
-
-IFS=:
-a=$1
-shift
-
-PATH="$ADDPATH:$a:${PATH#$ADDPATH:}" exec "$@"
-

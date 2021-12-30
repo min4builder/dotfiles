@@ -1,9 +1,6 @@
-#tabbrowser-tabs {
-	--user-tab-rounding: 1ex;
-}
 .tab-background {
-	border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important;
-	margin-block: 1px 0 !important;
+	border-radius: 0 0 0 0 !important;
+	margin-block: 0 0 !important;
 }
 #scrollbutton-up, #scrollbutton-down {
 	border-top-width: 1px !important;

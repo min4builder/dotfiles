@@ -4,13 +4,11 @@ else
 	_login=false
 fi
 export ROOT="$HOME/local"
-export ADDPATH="$HOME/pkg/bin:$HOME/bin"
-export PATH="$ADDPATH:${PATH#$ADDPATH:}"
+export PATH="$HOME/bin:$PATH"
 export ENV="$HOME/.profile"
 export EDITOR=vis VISUAL=vis
 export PAGER=less
-export BROWSER=librewolf
-export XDG_RUNTIME_DIR="$HOME/.local/run"
+export BROWSER=firefox
 
 ulimit -c unlimited
 

@@ -12,11 +12,13 @@ export XKB_DEFAULT_OPTIONS=compose:ralt,grp:menu_toggle
 export XDG_DESKTOP_DIR
 export XDG_DOWNLOAD_DIR
 
-# libseat isn't built with builtin backend enabled on Arch
-#export LIBSEAT_BACKEND=builtin
+# this requires that libseat be built with -Dlibseat-builtin=enabled
+# and special udev rules to chmod g+r /dev/tty0
+export LIBSEAT_BACKEND=builtin
 
-pipewire &
-pipewire-media-session &
-pipewire-pulse &
+if [ -z "$XDG_RUNTIME_DIR" ]; then
+	mkdir -p /tmp/runtime/$USER
+	export XDG_RUNTIME_DIR=/tmp/runtime/$USER
+fi
 
 exec dbus-run-session -- /usr/bin/sway "$@"

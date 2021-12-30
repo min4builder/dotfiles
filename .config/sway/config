@@ -5,15 +5,15 @@ set $up k
 set $right l
 
 set $menu bemenu-run | xargs swaymsg exec
-set $term alacritty
-set $whatsapp alacritty --class whatsapp -e whatscli
+set $term foot
+set $whatsapp foot -a whatsapp -e whatscli
 set $web "$BROWSER"
 set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
 set $stop_screencast killall -INT wf-recorder
 
 exec $web
-assign [app_id="librewolf"] 1
+assign [app_id="firefox"] 1
 
 exec $whatsapp
 assign [app_id="whatsapp"] 10
