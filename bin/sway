@@ -13,12 +13,17 @@ export XDG_DESKTOP_DIR
 export XDG_DOWNLOAD_DIR
 
 # this requires that libseat be built with -Dlibseat-builtin=enabled
-# and special udev rules to chmod g+r /dev/tty0
+# and special udev rules:
+# ACTION=="add", SUBSYSTEM=="tty", KERNEL=="tty0", GROUP="tty", MODE="0660"
 export LIBSEAT_BACKEND=builtin
 
 if [ -z "$XDG_RUNTIME_DIR" ]; then
-	mkdir -p /tmp/runtime/$USER
+	mkdir -pm 0700 /tmp/runtime/$USER
 	export XDG_RUNTIME_DIR=/tmp/runtime/$USER
 fi
+
+pipewire &
+pipewire-pulse &
+pipewire-media-session &
 
 exec dbus-run-session -- /usr/bin/sway "$@"

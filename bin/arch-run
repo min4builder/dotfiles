@@ -1,0 +1,21 @@
+#!/bin/sh
+
+env="DISPLAY=$DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS"
+
+if [ "$(id -u)" != 0 ]; then
+	xhost +local:
+	CHROOT= OLDUSER=$(id -un) SUDO_USER= DOAS_USER= exec "${SUDO:-doas}" unshare -m sh -c "$env '$0' \"\$@\"" "$@"
+elif [ ! "$CHROOT" ]; then
+	mount -o rbind /u /arch/u
+	mount -o rbind /proc /arch/proc
+	mount -o rbind /sys /arch/sys
+	mount -o rbind /dev /arch/dev
+	mount -o rbind /run /arch/run
+	mount -o rbind /tmp /arch/tmp
+	if [ "$#" != 0 ]; then
+		chroot /arch su - "${OLDUSER:-${DOAS_USER:-$SUDO_USER}}" -c "$env exec \"\$@\"" "$@"
+	else
+		chroot /arch su - "${OLDUSER:-${DOAS_USER:-$SUDO_USER}}" -c "$env exec bash -l"
+	fi
+fi
+

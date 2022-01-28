@@ -12,6 +12,8 @@ export BROWSER=firefox
 
 ulimit -c unlimited
 
+[ "$BASH_VERSION" ] && alias print=printf
+
 prompt_status() {
 	if [ "$1" -ne 0 ]; then
 		echo -n "$2"
