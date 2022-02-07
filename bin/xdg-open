@@ -4,7 +4,7 @@ case "${1%%:*}" in
 	http|https|file)
 		exec "$BROWSER" "$1";;
 	*.pdf)
-		exec foot -e spdf "$(realpath "$1")";;
+		exec zathura "$1";;
 	*)
 		echo "Don't know how to open $1" >&2;;
 esac

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sfeed_update
-sfeed_plain ~/.sfeed/feeds/* | sort -r > ~/.sfeed/aggregate_new
+sfeed_plain ~/.sfeed/feeds/* | sed 's/^[N ] //g' | sort -r > ~/.sfeed/aggregate_new
 if [ -f ~/.sfeed/aggregate ]; then
 	diff ~/.sfeed/aggregate ~/.sfeed/aggregate_new | tail -n +3 | grep '^+' > ~/rss
 else
