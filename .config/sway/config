@@ -12,15 +12,14 @@ set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
 set $stop_screencast killall -INT wf-recorder
 
-exec $web
 assign [app_id="firefox"] 1
 
 exec $whatsapp
 assign [app_id="whatsapp"] 10
 
 font monospace 12
-default_border pixel 1
-hide_edge_borders both
+default_border pixel 2
+hide_edge_borders smart_no_gaps
 floating_maximum_size -1 x -1
 
 input type:touchpad {
