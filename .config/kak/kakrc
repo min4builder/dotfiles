@@ -1,0 +1,42 @@
+add-highlighter global/ number-lines -relative -hlcursor
+add-highlighter global/ wrap -word -indent -marker '→'
+add-highlighter global/ column 80 +r
+set-option global indentwidth 0
+set-option global ui_options terminal_assistant=none
+
+map -docstring 'xdg-open file or url' global goto x '<esc>: xdg-open<ret>'
+
+define-command -params ..1 xdg-open %{
+	execute-keys <a-i><a-w>
+	nop %sh{ xdg-open "${1:-$kak_selection}" }
+}
+
+define-command selection-load %{
+	echo -debug LOAD %val{buffile} %val{selection_desc}
+	evaluate-commands %sh{
+		name=$(realpath "$kak_buffile")
+		[ "$name" ] || exit
+		grep -F "$name" ~/.kak-selections | while read line; do
+			if [ "${line%:*.*,*.*}" = "$name" ]; then
+				echo "select ${line##*:}"
+				break
+			fi
+		done
+	}
+}
+
+define-command selection-store %{
+	echo -debug STORE %val{buffile} %val{selection_desc}
+	nop %sh{
+		name=$(realpath "$kak_buffile")
+		: >>~/.kak-selections
+		grep -vF "$name:" ~/.kak-selections > ~/.kak-selections~
+		echo "$name:$kak_selection_desc" >> ~/.kak-selections~
+		mv ~/.kak-selections~ ~/.kak-selections
+	}
+}
+
+# broken due to https://github.com/mawww/kakoune/issues/4234
+#hook global WinCreate .* selection-load
+#hook global WinClose .* selection-store
+

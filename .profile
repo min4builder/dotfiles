@@ -6,7 +6,7 @@ fi
 export ROOT="$HOME/local"
 export PATH="$HOME/bin:$PATH"
 export ENV="$HOME/.profile"
-export EDITOR=vis VISUAL=vis
+export EDITOR=kak VISUAL=kak
 export PAGER=less
 export BROWSER=firefox
 
