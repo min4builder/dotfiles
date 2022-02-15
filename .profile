@@ -3,8 +3,7 @@ if ! [ "$ENV" ]; then
 else
 	_login=false
 fi
-export ROOT="$HOME/local"
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:${PATH#$HOME/bin}"
 export ENV="$HOME/.profile"
 export EDITOR=kak VISUAL=kak
 export PAGER=less

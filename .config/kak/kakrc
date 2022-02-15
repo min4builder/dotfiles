@@ -36,7 +36,17 @@ define-command selection-store %{
 	}
 }
 
-# broken due to https://github.com/mawww/kakoune/issues/4234
-#hook global WinCreate .* selection-load
-#hook global WinClose .* selection-store
+map -docstring 'last saved selection' global goto s '<esc>: selection-load<ret>'
+unalias global q quit
+unalias global wq write-quit
+
+define-command -docstring 'Quit' q %{
+	selection-store
+	quit
+}
+
+define-command -docstring 'Save and quit' wq %{
+	selection-store
+	write-all-quit
+}
 
