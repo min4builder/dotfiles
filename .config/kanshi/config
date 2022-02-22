@@ -1,0 +1,10 @@
+profile {
+	output eDP-1 disable
+	output DP-1 enable
+	exec swaymsg workspace 1, move workspace to DP-1
+}
+
+profile {
+	output eDP-1 enable
+	exec swaymsg workspace 1, move workspace to eDP-1
+}

@@ -29,7 +29,10 @@ prompt_git_branch() {
 	*) ;;
 	esac
 }
-export PS1="$(print '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(print '\001\033[0m\001') \$(todo)
+prompt_term_title() {
+	print '\033]0;'"$(prompt_pwd)"'\007'
+}
+export PS1="$(print '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(print '\001\033[0m\001') \$(todo)\$(prompt_term_title)
 "
 
 lc() {

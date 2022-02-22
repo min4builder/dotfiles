@@ -1,3 +1,8 @@
+evaluate-commands %sh{
+	find -L "$kak_runtime/autoload" -type f -name '*\.kak' \
+		| sed 's/.*/try %{ source "&" } catch %{ echo -debug Autoload: could not load "&" }/'
+}
+
 add-highlighter global/ number-lines -relative -hlcursor
 add-highlighter global/ wrap -word -indent -marker '→'
 add-highlighter global/ column 80 +r
