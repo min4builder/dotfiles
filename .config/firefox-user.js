@@ -504,5 +504,6 @@ pref("network.http.windows-sso.enabled", false); // disable MS auto authenticati
 user_pref("browser.uidensity", 1);
 user_pref("layout.spellcheckDefault", 0);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("toolkit.tabbox.switchByScrolling", true);
 user_pref("ui.systemUsesDarkTheme", 1);
 

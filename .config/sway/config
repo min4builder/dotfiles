@@ -14,10 +14,20 @@ set $stop_screencast killall -INT wf-recorder
 
 exec mako
 exec kanshi
+exec $web
 exec $whatsapp
 
+for_window [app_id="firefox"] {
+	move container to workspace 9:web
+	layout splitv
+}
+for_window [app_id="whatsapp"] {
+	move container to workspace 10:whatsapp
+	layout splitv
+}
+
 font monospace 12
-default_border normal 2
+default_border pixel 2
 hide_edge_borders both
 floating_maximum_size -1 x -1
 workspace_layout tabbed
@@ -31,51 +41,65 @@ input type:pointer {
 	left_handed enabled
 }
 
-    bindsym $mod+Return exec $term
+bindsym $mod+Return exec $term
 
-    bindsym $mod+Shift+s exec $screenshot
-    bindsym $mod+Ctrl+s exec $screencast
-    bindsym $mod+Ctrl+Shift+s exec $stop_screencast
+bindsym $mod+Shift+s exec $screenshot
+bindsym $mod+Ctrl+s exec $screencast
+bindsym $mod+Ctrl+Shift+s exec $stop_screencast
 
-    bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu
 
-    bindsym $mod+d exec $menu
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exit
 
-    floating_modifier $mod normal
+floating_modifier $mod normal
 
-    bindsym $mod+Shift+c reload
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
-    bindsym $mod+Shift+e exit
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
 
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+bindsym $mod+b workspace prev
+bindsym $mod+w workspace next
 
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9:web
+bindsym $mod+0 workspace 10:whatsapp
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9:web
+bindsym $mod+Shift+0 move container to workspace 10:whatsapp
 
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
 
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
 
-    bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
 
-    bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
 
-    bindsym $mod+space focus mode_toggle
-
-    bindsym $mod+a focus parent
-
-    bindsym $mod+Shift+minus move scratchpad
-
-    bindsym $mod+minus scratchpad show
-
+bindsym $mod+r mode "resize"
 mode "resize" {
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
@@ -90,6 +114,8 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
 
-include /etc/sway/config.d/*
+bar {
+	strip_workspace_numbers yes
+}
+
