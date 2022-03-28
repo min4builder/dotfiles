@@ -12,10 +12,8 @@ set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
 set $stop_screencast killall -INT wf-recorder
 
-exec mako
 exec kanshi
 exec $web
-exec $whatsapp
 
 for_window [app_id="firefox"] {
 	move container to workspace 9:web
@@ -117,5 +115,6 @@ mode "resize" {
 
 bar {
 	strip_workspace_numbers yes
+	status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 60; done
 }
 
