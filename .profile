@@ -3,7 +3,7 @@ if ! [ "$ENV" ]; then
 else
 	_login=false
 fi
-export PATH="$HOME/bin:${PATH#$HOME/bin}"
+export PATH="$HOME/bin:${PATH#$HOME/bin:}"
 export ENV="$HOME/.profile"
 export TERMINAL=st
 export EDITOR=kak VISUAL=kak
@@ -31,7 +31,7 @@ prompt_git_branch() {
 	esac
 }
 prompt_term_title() {
-	print '\033]0;'"$(prompt_pwd)"'\007'
+	print '\033]0;'"$(prompt_pwd)"'\033\\'
 }
 export PS1="$(print '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(print '\001\033[0m\001') \$(todo)\$(prompt_term_title)
 "
