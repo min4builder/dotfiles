@@ -5,8 +5,7 @@ set $up k
 set $right l
 
 set $menu wldash
-set $term foot
-set $whatsapp foot -T WhatsApp -a whatsapp -e whatscli
+set $term "$TERMINAL"
 set $web "$BROWSER"
 set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
@@ -14,7 +13,6 @@ set $stop_screencast killall -INT wf-recorder
 
 exec mako
 exec kanshi
-exec $whatsapp
 
 font monospace 12
 default_border normal 2

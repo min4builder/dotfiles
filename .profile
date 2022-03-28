@@ -5,6 +5,7 @@ else
 fi
 export PATH="$HOME/bin:${PATH#$HOME/bin}"
 export ENV="$HOME/.profile"
+export TERMINAL=st
 export EDITOR=kak VISUAL=kak
 export PAGER=less
 export BROWSER=firefox
