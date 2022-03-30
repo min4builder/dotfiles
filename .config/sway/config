@@ -14,7 +14,7 @@ set $stop_screencast killall -INT wf-recorder
 exec kanshi
 exec $web
 
-for_window [app_id="firefox"] {
+for_window [app_id="firefox|google-chrome"] {
 	move container to workspace 9:web
 	layout splitv
 }
@@ -23,7 +23,7 @@ for_window [app_id="whatsapp"] {
 	layout splitv
 }
 
-font monospace 12
+font monospace 16
 default_border pixel 2
 hide_edge_borders both
 floating_maximum_size -1 x -1

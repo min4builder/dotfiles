@@ -9,7 +9,24 @@ add-highlighter global/ column 80 +r
 set-option global indentwidth 0
 set-option global ui_options terminal_assistant=none
 
+hook global BufCreate ^[^*]+$ %{
+	editorconfig-load
+	autoconfigtab
+}
+hook global WinSetOption filetype=(scheme|lisp|clojure|javascript|json) %{
+	rainbow-enable-window
+}
+
+try %{
+	# not supported in older versions
+	hook global RegisterModified '"' %{ nop %sh{ wl-copy "$kak_main_reg_dquote" >/dev/null 2>&1 & } }
+}
+hook global NormalKey y|d|c %{ nop %sh{ wl-copy "$kak_main_reg_dquote" >/dev/null 2>&1 & } }
+
 map -docstring 'xdg-open file or url' global goto x '<esc>: xdg-open<ret>'
+map global user P '!wl-paste -n<ret>'
+map global user p '<a-!>wl-paste -n<ret>'
+map global user R '|wl-paste -n<ret>'
 
 define-command -params ..1 xdg-open %{
 	execute-keys <a-i><a-w>

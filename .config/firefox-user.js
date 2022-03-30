@@ -73,8 +73,8 @@ user_pref("network.trr.confirmationNS", "skip"); // skip undesired doh test conn
  
  below prefs must be applied with pref in order to work
 */
-user_pref pref("network.trr.mode", 2);
-user_pref pref("network.trr.uri", "https://dns.quad9.net/dns-query");
+user_pref("network.trr.mode", 2);
+user_pref("network.trr.uri", "https://dns.quad9.net/dns-query");
 
 // prefetching
 user_pref("network.dns.disablePrefetch", true); // disable dns prefetching
@@ -346,8 +346,8 @@ user_pref("extensions.update.autoUpdateDefault", false); // disable automatic in
 user_pref("extensions.getAddons.cache.enabled", false); // disable fetching of extension metadata
 
 // extension firewall, disabled by default
-user_pref defaultPref("extensions.webextensions.base-content-security-policy", "default-src 'none'; script-src 'none'; object-src 'none';");
-user_pref defaultPref("extensions.webextensions.base-content-security-policy.v3", "default-src 'none'; script-src 'none'; object-src 'none';");
+user_pref("extensions.webextensions.base-content-security-policy", "default-src 'none'; script-src 'none'; object-src 'none';");
+user_pref("extensions.webextensions.base-content-security-policy.v3", "default-src 'none'; script-src 'none'; object-src 'none';");
 
 // report site issue, disable button and url for in depth defense
 user_pref("extensions.webcompat-reporter.enabled", false);

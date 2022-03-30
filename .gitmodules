@@ -1,0 +1,6 @@
+[submodule ".config/kak/autoload/kak-rainbow"]
+	path = .config/kak/autoload/kak-rainbow
+	url = https://github.com/Bodhizafa/kak-rainbow
+[submodule ".config/kak/autoload/smarttab.kak"]
+	path = .config/kak/autoload/smarttab.kak
+	url = https://github.com/andreyorst/smarttab.kak
