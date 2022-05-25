@@ -3,7 +3,7 @@ evaluate-commands %sh{
 		| sed 's/.*/try %{ source "&" } catch %{ echo -debug Autoload: could not load "&" }/'
 }
 
-add-highlighter global/ number-lines -relative -hlcursor
+add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ wrap -word -indent -marker '→'
 add-highlighter global/ column 80 +r
 set-option global indentwidth 0
@@ -13,15 +13,11 @@ hook global BufCreate ^[^*]+$ %{
 	editorconfig-load
 	autoconfigtab
 }
-hook global WinSetOption filetype=(scheme|lisp|clojure|javascript|json) %{
+hook global WinSetOption filetype=(scheme|lisp|clojure|json) %{
 	rainbow-enable-window
 }
 
-try %{
-	# not supported in older versions
-	hook global RegisterModified '"' %{ nop %sh{ wl-copy "$kak_main_reg_dquote" >/dev/null 2>&1 & } }
-}
-hook global NormalKey y|d|c %{ nop %sh{ wl-copy "$kak_main_reg_dquote" >/dev/null 2>&1 & } }
+hook global RegisterModified '"' %{ nop %sh{ wl-copy "$kak_main_reg_dquote" >/dev/null 2>&1 & } }
 
 map -docstring 'xdg-open file or url' global goto x '<esc>: xdg-open<ret>'
 map global user P '!wl-paste -n<ret>'

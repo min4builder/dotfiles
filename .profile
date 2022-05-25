@@ -9,6 +9,7 @@ export TERMINAL=st
 export EDITOR=kak VISUAL=kak
 export PAGER=less
 export BROWSER=google-chrome
+export HISTFILE="$HOME/.mksh-history"
 
 ulimit -c unlimited
 
@@ -31,9 +32,9 @@ prompt_git_branch() {
 	esac
 }
 prompt_term_title() {
-	print '\033]0;'"$(prompt_pwd)"'\033\\'
+	printf '\033]0;'"$(prompt_pwd)"'\033\\'
 }
-export PS1="$(print '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(print '\001\033[0m\001') \$(todo)\$(prompt_term_title)
+export PS1="$(printf '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(printf '\001\033[0m\001') \$(todo)\$(prompt_term_title)
 "
 
 ls() {
@@ -47,10 +48,20 @@ cd() {
 	builtin cd "$@"
 	echo -n "$PWD" > ~/.lastpwd
 }
+kak() {
+	if [ "$#" -eq 0 ]; then
+		file=$(fzf)
+		if [ "$file" ]; then
+			print -s kak "$(echo "$file" | sed "s/[' &;()|]/\\&/g")"
+			command kak "$file"
+		fi
+	else
+		command kak "$@"
+	fi
+}
 
 if ! $_login; then
 	[ -f ~/.lastpwd ] && cd "$(cat ~/.lastpwd)"
 	ls
-	print "\\n\\033[1mWelcome, $USER\\033[0m\\n"
+	printf "\\n\\033[1mWelcome, $USER\\033[0m\\n"
 fi
-

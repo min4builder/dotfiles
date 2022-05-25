@@ -5,8 +5,8 @@ set $up k
 set $right l
 
 set $menu wldash
-set $term "$TERMINAL"
-set $web "$BROWSER"
+set $term exec "$TERMINAL"
+set $web exec "$BROWSER"
 set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
 set $stop_screencast killall -INT wf-recorder
@@ -14,20 +14,16 @@ set $stop_screencast killall -INT wf-recorder
 exec kanshi
 exec $web
 
-for_window [app_id="firefox|google-chrome"] {
-	move container to workspace 9:web
-	layout splitv
-}
-for_window [app_id="whatsapp"] {
-	move container to workspace 10:whatsapp
-	layout splitv
-}
+assign [app_id="firefox"] 9:web
+assign [app_id="librewolf-default"] 9:web
+for_window [title="LibreWolf — Sharing Indicator"] kill
+assign [app_id="whatsapp"] 10:messages
+assign [title="aerc"] 10:messages
 
 font monospace 16
 default_border pixel 2
 hide_edge_borders both
 floating_maximum_size -1 x -1
-workspace_layout tabbed
 
 input type:touchpad {
 	tap enabled
@@ -74,7 +70,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9:web
-bindsym $mod+0 workspace 10:whatsapp
+bindsym $mod+0 workspace 10:messages
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -84,7 +80,7 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9:web
-bindsym $mod+Shift+0 move container to workspace 10:whatsapp
+bindsym $mod+Shift+0 move container to workspace 10:messages
 
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
