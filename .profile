@@ -3,17 +3,18 @@ if ! [ "$ENV" ]; then
 else
 	_login=false
 fi
-export PATH="$HOME/bin:${PATH#$HOME/bin:}"
+export SHORTHOST="$(printf %.1s "$(hostname)")"
+export PATH="$HOME/bin:$HOME/bin/$SHORTHOST:${PATH#$HOME/bin:$HOME/bin/$SHORTHOST:}"
 export ENV="$HOME/.profile"
 export TERMINAL=st
 export EDITOR=kak VISUAL=kak
 export PAGER=less
-export BROWSER=google-chrome
+export BROWSER=librewolf
 export HISTFILE="$HOME/.mksh-history"
 
 ulimit -c unlimited
 
-[ "$BASH_VERSION" ] && alias print=printf
+[ -f "$HOME/.config/${SHORTHOST}profile" ] && . "$HOME/.config/${SHORTHOST}profile"
 
 prompt_status() {
 	if [ "$1" -ne 0 ]; then

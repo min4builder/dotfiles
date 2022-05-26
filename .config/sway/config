@@ -11,16 +11,16 @@ set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
 set $stop_screencast killall -INT wf-recorder
 
-exec kanshi
+exec exec kanshi
 exec $web
 
 assign [app_id="firefox"] 9:web
 assign [app_id="librewolf-default"] 9:web
 for_window [title="LibreWolf — Sharing Indicator"] kill
 assign [app_id="whatsapp"] 10:messages
-assign [title="aerc"] 10:messages
+assign [title="mail"] 10:messages
 
-font monospace 16
+font monospace 20px
 default_border pixel 2
 hide_edge_borders both
 floating_maximum_size -1 x -1
@@ -113,3 +113,4 @@ bar {
 	status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 60; done
 }
 
+include ~/.config/sway/${SHORTHOST}config
