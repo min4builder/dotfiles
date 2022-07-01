@@ -4,9 +4,9 @@ else
 	_login=false
 fi
 export SHORTHOST="$(printf %.1s "$(hostname)")"
-export PATH="$HOME/bin:$HOME/bin/$SHORTHOST:${PATH#$HOME/bin:$HOME/bin/$SHORTHOST:}"
+export PATH="$HOME/bin:$HOME/bin/$SHORTHOST:${PATH#"$HOME/bin:$HOME/bin/$SHORTHOST":}"
 export ENV="$HOME/.profile"
-export TERMINAL=st
+export TERMINAL=foot
 export EDITOR=kak VISUAL=kak
 export PAGER=less
 export BROWSER=librewolf
@@ -33,7 +33,7 @@ prompt_git_branch() {
 	esac
 }
 prompt_term_title() {
-	printf '\033]0;'"$(prompt_pwd)"'\033\\'
+	printf '\033]0;%s\033\\' "$(prompt_pwd)"
 }
 export PS1="$(printf '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(printf '\001\033[0m\001') \$(todo)\$(prompt_term_title)
 "
@@ -46,7 +46,7 @@ ls() {
 	fi
 }
 cd() {
-	builtin cd "$@"
+	builtin cd "$@" || return $?
 	echo -n "$PWD" > ~/.lastpwd
 }
 kak() {

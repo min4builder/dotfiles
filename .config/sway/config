@@ -22,7 +22,6 @@ assign [title="mail"] 10:messages
 
 font monospace 20px
 default_border pixel 2
-hide_edge_borders both
 floating_maximum_size -1 x -1
 
 input type:touchpad {
