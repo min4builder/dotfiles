@@ -9,7 +9,7 @@ export ENV="$HOME/.profile"
 export TERMINAL=foot
 export EDITOR=kak VISUAL=kak
 export PAGER=less
-export BROWSER=librewolf
+export BROWSER=firefox
 export HISTFILE="$HOME/.mksh-history"
 
 ulimit -c unlimited

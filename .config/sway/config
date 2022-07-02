@@ -20,7 +20,7 @@ for_window [title="LibreWolf — Sharing Indicator"] kill
 assign [app_id="whatsapp"] 10:messages
 assign [title="mail"] 10:messages
 
-font monospace 20px
+font monospace 16px
 default_border pixel 2
 floating_maximum_size -1 x -1
 
