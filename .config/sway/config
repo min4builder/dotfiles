@@ -28,6 +28,7 @@ input type:touchpad {
 	tap enabled
 	left_handed enabled
 	middle_emulation enabled
+	events disabled_on_external_mouse
 }
 input type:pointer {
 	left_handed enabled

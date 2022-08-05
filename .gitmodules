@@ -1,6 +1,15 @@
-[submodule ".config/kak/autoload/kak-rainbow"]
-	path = .config/kak/autoload/kak-rainbow
-	url = https://github.com/Bodhizafa/kak-rainbow
-[submodule ".config/kak/autoload/smarttab.kak"]
-	path = .config/kak/autoload/smarttab.kak
-	url = https://github.com/andreyorst/smarttab.kak
+[submodule ".config/vis/vis-commentary"]
+	path = .config/vis/vis-commentary
+	url = https://github.com/lutobler/vis-commentary
+[submodule ".config/vis/vis-ctags"]
+	path = .config/vis/vis-ctags
+	url = https://github.com/kupospelov/vis-ctags
+[submodule ".config/vis/vis-cursors"]
+	path = .config/vis/vis-cursors
+	url = https://github.com/erf/vis-cursors
+[submodule ".config/vis/vis-jump"]
+	path = .config/vis/vis-jump
+	url = https://gitlab.com/mcepl/vis-jump
+[submodule ".config/vis/vis-smart-backspace"]
+	path = .config/vis/vis-smart-backspace
+	url = https://github.com/ingolemo/vis-smart-backspace

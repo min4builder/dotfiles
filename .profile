@@ -7,7 +7,7 @@ export SHORTHOST="$(printf %.1s "$(hostname)")"
 export PATH="$HOME/bin:$HOME/bin/$SHORTHOST:${PATH#"$HOME/bin:$HOME/bin/$SHORTHOST":}"
 export ENV="$HOME/.profile"
 export TERMINAL=foot
-export EDITOR=kak VISUAL=kak
+export EDITOR=vis VISUAL=vis
 export PAGER=less
 export BROWSER=firefox
 export HISTFILE="$HOME/.mksh-history"
@@ -18,7 +18,7 @@ ulimit -c unlimited
 
 prompt_status() {
 	if [ "$1" -ne 0 ]; then
-		echo -n "$2"
+		echo "$2"
 	fi
 }
 prompt_pwd() {
@@ -47,18 +47,7 @@ ls() {
 }
 cd() {
 	builtin cd "$@" || return $?
-	echo -n "$PWD" > ~/.lastpwd
-}
-kak() {
-	if [ "$#" -eq 0 ]; then
-		file=$(fzf)
-		if [ "$file" ]; then
-			print -s kak "$(echo "$file" | sed "s/[' &;()|]/\\&/g")"
-			command kak "$file"
-		fi
-	else
-		command kak "$@"
-	fi
+	printf %s "$PWD" > ~/.lastpwd
 }
 
 if ! $_login; then
