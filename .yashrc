@@ -1,0 +1,11 @@
+alias builtin='command -b '
+. ~/.profile
+
+set --emacs
+set --notify-le
+set --le-predict
+
+bindkey -e '\SR' forward-viword
+bindkey -e '\SL' backward-viword
+bindkey -e '\^W' backward-kill-viword
+

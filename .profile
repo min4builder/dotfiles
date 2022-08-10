@@ -10,7 +10,7 @@ export TERMINAL=foot
 export EDITOR=vis VISUAL=vis
 export PAGER=less
 export BROWSER=librewolf
-export HISTFILE="$HOME/.mksh-history"
+export HISTFILE=
 
 ulimit -c unlimited
 
@@ -47,7 +47,7 @@ ls() {
 }
 cd() {
 	builtin cd "$@" || return $?
-	printf %s "$PWD" > ~/.lastpwd
+	pwd > ~/.lastpwd
 }
 
 if ! $_login; then
