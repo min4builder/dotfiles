@@ -40,8 +40,10 @@ feeds() {
 	feed "scienceelf" "https://www.youtube.com/feeds/videos.xml?channel_id=UCCrnCItH17W-64FDzjwOi5w"
 	feed "douglas" "https://www.youtube.com/feeds/videos.xml?channel_id=UCjVn35Ubo5c2wagQ6bgVT1Q"
 	feed "kacey" "https://www.youtube.com/feeds/videos.xml?channel_id=UC_h74HhEDWg1VgfienVQxXA"
+	feed "minimme" "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIBtu2SBuW_VFHwKwDOtYg"
 	feed "surveillancereport" "https://surveillancereport.tech/feed"
 	feed "stuffwithstuff" "https://journal.stuffwithstuff.com/atom.xml"
 	feed "xkcd" "https://xkcd.com/atom.xml" "https://xkcd.com"
 	feed "aurora" "https://comicaurora.com/feed/" "https://comicaurora.com/"
+	feed "munificent" "https://journal.stuffwithstuff.com/rss.xml"
 }
