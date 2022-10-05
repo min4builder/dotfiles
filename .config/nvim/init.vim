@@ -1,4 +1,5 @@
 set number
+nmap gx viW"ay:!xdg-open <C-R>a &<CR>
 "set viminfo='100,<50,s10,h
 "`0 goes to the file as well, for some reason
 "autocmd BufReadPost *
