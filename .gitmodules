@@ -13,3 +13,6 @@
 [submodule ".config/vis/vis-smart-backspace"]
 	path = .config/vis/vis-smart-backspace
 	url = https://github.com/ingolemo/vis-smart-backspace
+[submodule ".config/nvim/pack/gpanders/start/editorconfig.nvim"]
+	path = .config/nvim/pack/gpanders/start/editorconfig.nvim
+	url = https://github.com/gpanders/editorconfig.nvim
