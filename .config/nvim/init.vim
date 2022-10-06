@@ -1,8 +1,7 @@
 set number
 nmap gx viW"ay:!xdg-open <C-R>a &<CR>
-"set viminfo='100,<50,s10,h
-"`0 goes to the file as well, for some reason
-"autocmd BufReadPost *
-"	\ if line("'0") >= 1 && line("'0") < line("$") |
-"	\   exe "normal! `0zz" |
-"	\ endif
+set shada='100,<50,s10,h
+autocmd BufReadPost *
+	\ if line("'\"") >= 1 && line("'\"") < line("$") |
+	\   exe "normal! `\"zz" |
+	\ endif
