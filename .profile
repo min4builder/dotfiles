@@ -39,7 +39,7 @@ export PS1="$(printf '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_st
 "
 
 ls() {
-	if [ ! "${1##-*}" ]; then
+	if [ "$1" -a ! "${1##-*}" ]; then
 		command ls "$@"
 	else
 		command ls -F "$@" | cols
