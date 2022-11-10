@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mbeep | aplay -q -f U8 -r 22250
