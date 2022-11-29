@@ -1,4 +1,5 @@
 set number
+set shiftwidth=0
 " need to wait for 0.8.0 for this to work
 "set cmdheight=0
 set statusline=%f\ %m%=%y%h%w\ %c\ %l/%L\ %P

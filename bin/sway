@@ -22,4 +22,6 @@ if [ -z "$XDG_RUNTIME_DIR" ]; then
 	export XDG_RUNTIME_DIR=/tmp/runtime/$USER
 fi
 
+[ -r ~/.sndioctl ] && cat ~/.sndioctl | xargs sndioctl
+
 exec dbus-run-session -- /usr/bin/sway "$@"

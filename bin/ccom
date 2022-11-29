@@ -1,0 +1,11 @@
+#!/bin/sh
+
+CC=${CC:-clang}
+CFLAGS=${CFLAGS:--g -Og -Wall -std=c99 -pedantic -Wno-unknown-pragmas}
+
+LIBS=$(for i; do
+	"$CC" -E "$i" | grep '^# *pragma \+lib \+'
+done | sed 's/^# *pragma \+lib \+\(\w*\) *$/-l\1/g')
+
+echo "$CC" $CFLAGS -o "${1%.c}" "$@" $LIBS
+"$CC" $CFLAGS -o "${1%.c}" "$@" $LIBS

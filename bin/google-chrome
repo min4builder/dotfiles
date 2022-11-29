@@ -1,6 +1,0 @@
-#!/bin/sh
-if [ "$WAYLAND_DISPLAY" ]; then
-	exec /usr/bin/google-chrome --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
-else
-	exec /usr/bin/google-chrome "$@"
-fi
