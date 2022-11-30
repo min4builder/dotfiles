@@ -16,6 +16,8 @@ set $voldown sndioctl output.level=-0.1
 exec exec kanshi
 exec $web
 
+include ~/.config/sway/${SHORTHOST}config
+
 assign [app_id="firefox"] 9:web
 assign [app_id="librewolf-default"] 9:web
 for_window [title="LibreWolf — Sharing Indicator"] kill
@@ -117,5 +119,3 @@ bar {
 	strip_workspace_numbers yes
 	status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 60; done
 }
-
-include ~/.config/sway/${SHORTHOST}config
