@@ -38,13 +38,7 @@ prompt_term_title() {
 export PS1="$(printf '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(printf '\001\033[0m\001') \$(todo)\$(prompt_term_title)
 "
 
-ls() {
-	if [ "$1" -a ! "${1##-*}" ]; then
-		command ls "$@"
-	else
-		command ls -F "$@" | cols
-	fi
-}
+alias ls="ls --color=auto -F "
 cd() {
 	builtin cd "$@" || return $?
 	pwd > ~/.lastpwd
