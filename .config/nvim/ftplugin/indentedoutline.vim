@@ -4,7 +4,6 @@ endif
 let b:did_ftplugin=1
 
 setlocal foldmethod=indent
-setlocal foldclose=all
 setlocal fillchars=fold:\ 
 setlocal invlist
 setlocal listchars=tab:-\ 
