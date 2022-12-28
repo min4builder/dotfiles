@@ -7,7 +7,7 @@ export SHORTHOST="$(printf %.1s "$(hostname)")"
 export PATH="$HOME/bin:$HOME/bin/$SHORTHOST:${PATH#"$HOME/bin:$HOME/bin/$SHORTHOST":}"
 export ENV="$HOME/.profile"
 export TERMINAL=foot
-export EDITOR=nvim VISUAL=nvim
+export EDITOR=vis VISUAL=vis
 export PAGER=less
 export BROWSER=librewolf
 export HISTFILE=
