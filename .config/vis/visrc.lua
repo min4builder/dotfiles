@@ -7,9 +7,11 @@ plug.init({
 	{ 'erf/vis-cursors' },
 	{ 'erf/vis-highlight', alias = 'highlight' },
 	{ 'gitlab.com/mcepl/vis-jump' }, -- gx
+	{ 'lutobler/vis-modelines' },
 	{ 'ingolemo/vis-smart-backspace', alias = 'smart_backspace' },
+	{ 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
 }, true)
-plug.plugins.highlight.patterns[' +\n'] = { style = 'back:#880000' }
+plug.plugins.highlight.patterns['[ \t]+\n'] = { style = 'back:#880000' }
 
 vis.events.subscribe(vis.events.INIT, function()
 	-- nothing

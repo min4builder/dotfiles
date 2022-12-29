@@ -34,7 +34,6 @@ feeds() {
 	feed "mattkc" "https://www.youtube.com/feeds/videos.xml?channel_id=UChrYe70o7NmDioL02PRVWVg"
 	feed "dkmusicbox" "https://www.youtube.com/feeds/videos.xml?channel_id=UCbpM3-hbeRVx6fV3aP3FoHA"
 	feed "scienceelf" "https://www.youtube.com/feeds/videos.xml?channel_id=UCCrnCItH17W-64FDzjwOi5w"
-	feed "kacey" "https://www.youtube.com/feeds/videos.xml?channel_id=UC_h74HhEDWg1VgfienVQxXA"
 	feed "minimme" "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIBtu2SBuW_VFHwKwDOtYg"
 	feed "aarthificial" "https://www.youtube.com/feeds/videos.xml?channel_id=UCtEwVJZABCd0tels2KIpKGQ"
 	feed "jasper" "https://www.youtube.com/feeds/videos.xml?channel_id=UC5bN6XKHDCFt_wYAJmsP_Mg"
