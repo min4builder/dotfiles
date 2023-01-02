@@ -5,7 +5,6 @@ set --vi
 set --notify-le
 set --le-predict
 
-bindkey -e '\SR' forward-viword
-bindkey -e '\SL' backward-viword
-bindkey -e '\^W' backward-kill-viword
+bindkey -v '\^E' end-of-line
+bindkey -v '\^A' beginning-of-line
 
