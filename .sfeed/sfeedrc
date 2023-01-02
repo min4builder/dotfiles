@@ -7,6 +7,7 @@ feeds() {
 	feed "stuffwithstuff" "https://journal.stuffwithstuff.com/atom.xml"
 	feed "xkcd" "https://xkcd.com/atom.xml" "https://xkcd.com"
 	feed "aurora" "https://comicaurora.com/feed/" "https://comicaurora.com/"
+	feed "zserge" "https://zserge.com/rss.xml" "https://zserge.com/"
 	feed "fabiensanglard" "https://www.fabiensanglard.net/rss.xml" "https://www.fabiensanglard.net/"
 	feed "jdh" "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzQJ3JBuQ9w-po4TXRJHiA"
 	feed "janmisali" "https://www.youtube.com/feeds/videos.xml?channel_id=UCJOh5FKisc0hUlEeWFBlD-w"

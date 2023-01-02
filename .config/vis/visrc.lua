@@ -8,7 +8,7 @@ plug.init({
 	{ 'erf/vis-highlight', alias = 'highlight' },
 	{ 'gitlab.com/mcepl/vis-jump' }, -- gx
 	{ 'lutobler/vis-modelines' },
-	{ 'https://repo.or.cz/vis-parkour.git', file = '', alias = 'parkour' },
+	{ 'repo.or.cz/vis-parkour.git', file = '', alias = 'parkour' },
 	{ 'ingolemo/vis-smart-backspace', alias = 'smart_backspace' },
 	{ 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
 }, true)
