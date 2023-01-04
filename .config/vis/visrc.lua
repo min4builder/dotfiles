@@ -10,9 +10,9 @@ plug.init({
 	{ 'lutobler/vis-modelines' },
 	{ 'https://repo.or.cz/vis-parkour.git', file = '', alias = 'parkour' },
 	{ 'ingolemo/vis-smart-backspace', alias = 'smart_backspace' },
-	{ 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
 }, true)
-plug.plugins.highlight.patterns['[ \t]+\n'] = { style = 'back:#880000' }
+plug.plugins.highlight.patterns['[ \t]+$'] = { style = 'back:#880000' }
+plug.plugins.highlight.patterns[' +\t+'] = { style = 'back:#880000' }
 plug.plugins.parkour.emacs = false
 
 vis.events.subscribe(vis.events.INIT, function()
@@ -25,6 +25,7 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	vis:command 'set colorcolumn 80'
 	vis:command 'set ignorecase'
 	vis:command 'set number'
+	vis:command 'set theme alt16'
 	if win.syntax == 'python' then
 		vis:command 'set expandtab'
 		vis:command 'set tabwidth 4'
