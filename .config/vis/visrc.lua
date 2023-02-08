@@ -5,6 +5,7 @@ plug.init({
 	{ 'lutobler/vis-commentary' }, -- gcc
 	{ 'kupospelov/vis-ctags' }, -- ^], ^T, g^]
 	{ 'erf/vis-cursors' },
+	{ 'seifferth/vis-editorconfig' },
 	{ 'erf/vis-highlight', alias = 'highlight' },
 	{ 'gitlab.com/mcepl/vis-jump' }, -- gx
 	{ 'lutobler/vis-modelines' },

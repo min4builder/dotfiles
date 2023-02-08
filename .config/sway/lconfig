@@ -4,3 +4,5 @@ font monospace 18px
 
 set $volup amixer set Master 10%+
 set $voldown amixer set Master 10%-
+
+exec amixer set Capture 15%
