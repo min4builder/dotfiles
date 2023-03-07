@@ -4,7 +4,7 @@ else
 	_login=false
 fi
 export SHORTHOST="$(printf %.1s "$(hostname)")"
-export PATH="$HOME/bin:$HOME/bin/$SHORTHOST:${PATH#"$HOME/bin:$HOME/bin/$SHORTHOST":}"
+export PATH="$HOME/bin/$SHORTHOST:$HOME/bin:${PATH#"$HOME/bin/$SHORTHOST:$HOME/bin:"}"
 export ENV="$HOME/.profile"
 export TERMINAL=foot
 export EDITOR=vis VISUAL=vis

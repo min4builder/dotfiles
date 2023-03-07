@@ -1,4 +1,5 @@
 alias builtin='command -b '
+
 . ~/.profile
 
 set --vi
@@ -7,4 +8,3 @@ set --le-predict
 
 bindkey -v '\^E' end-of-line
 bindkey -v '\^A' beginning-of-line
-

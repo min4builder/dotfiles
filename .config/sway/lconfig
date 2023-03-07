@@ -1,3 +1,5 @@
 exec enable-screensharing
 exec $term -T mail -e aerc
 font monospace 18px
+
+exec amixer set Capture 15%
