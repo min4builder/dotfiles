@@ -1,7 +1,12 @@
 #!/bin/sh
 
-CC=${CC:-clang}
-CFLAGS=${CFLAGS:--g -Og -Wall -std=c99 -pedantic -Wno-unknown-pragmas}
+CC=${CC:-gcc}
+CFLAGS=${CFLAGS:--g -Og -Wall -std=c11 -pedantic -Wno-unknown-pragmas}
+
+while [ ! "${1##-*}" ]; do
+	CFLAGS="$CFLAGS $1"
+	shift
+done
 
 LIBS=$(for i; do
 	"$CC" -E "$i" | grep '^# *pragma \+lib \+'

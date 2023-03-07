@@ -10,8 +10,8 @@ set $web exec "$BROWSER"
 set $screenshot grim -g "$(slurp)"
 set $screencast wf-recorder -a -g "$(slurp)" -f ~/recording.mp4
 set $stop_screencast killall -INT wf-recorder
-set $volup sndioctl output.level=+0.1
-set $voldown sndioctl output.level=-0.1
+set $volup amixer set Master 10%+
+set $voldown amixer set Master 10%-
 
 exec exec kanshi
 exec $web

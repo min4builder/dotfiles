@@ -40,4 +40,7 @@ feeds() {
 	feed "jasper" "https://www.youtube.com/feeds/videos.xml?channel_id=UC5bN6XKHDCFt_wYAJmsP_Mg"
 	feed "t3ssel8r" "https://www.youtube.com/feeds/videos.xml?channel_id=UCIjUIjWig0r5DIixQrt6A3A"
 	feed "acerola" "https://www.youtube.com/feeds/videos.xml?channel_id=UCQG40havu4kNpB4pxUDQhYQ"
+	feed "masahirosakurai" "https://www.youtube.com/feeds/videos.xml?channel_id=UCv1DvRY5PyHHt3KN9ghunuw"
+	feed "samdoesarts" "https://www.youtube.com/feeds/videos.xml?channel_id=UCNNOvB507MRfny7Jcv8MmOw"
+	feed "austinmcconnel" "https://www.youtube.com/feeds/videos.xml?channel_id=UCbxQcz9k0NRRuy0ukgQTDQQ"
 }

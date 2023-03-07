@@ -1,6 +1,3 @@
 exec enable-screensharing
 exec $term -T mail -e aerc
 font monospace 18px
-
-set $volup amixer set Master 10%+
-set $voldown amixer set Master 10%-

@@ -28,7 +28,7 @@ lexers.STYLE_IDENTIFIER = 'fore:default'
 
 lexers.STYLE_LINENUMBER = 'fore:'..brightblack..',back:'..sel
 lexers.STYLE_LINENUMBER_CURSOR = 'fore:'..brightblack..',back:'..sel
-lexers.STYLE_CURSOR = 'fore:black,back:white'
+lexers.STYLE_CURSOR = 'fore:'..brightsel..',back:'..brightblack
 lexers.STYLE_CURSOR_PRIMARY = 'fore:black,back:white'
 lexers.STYLE_CURSOR_LINE = 'back:'..sel
 lexers.STYLE_COLOR_COLUMN = 'back:'..sel
