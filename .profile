@@ -9,7 +9,7 @@ export ENV="$HOME/.profile"
 export TERMINAL=foot
 export EDITOR=vis VISUAL=vis
 export PAGER=less
-export BROWSER=librewolf
+export BROWSER=firefox
 export HISTFILE=
 
 ulimit -c unlimited
@@ -39,6 +39,7 @@ export PS1="$(printf '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_st
 "
 
 alias ls="ls --color=auto -F "
+alias gdb="cgdb -q"
 cd() {
 	builtin cd "$@" || return $?
 	pwd > ~/.lastpwd
