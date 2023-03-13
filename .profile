@@ -9,7 +9,7 @@ export ENV="$HOME/.profile"
 export TERMINAL=foot
 export EDITOR=vis VISUAL=vis
 export PAGER=less
-export BROWSER=firefox
+export BROWSER=librewolf
 export HISTFILE=
 
 ulimit -c unlimited

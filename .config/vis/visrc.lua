@@ -3,13 +3,13 @@ require 'vis'
 local plug = require 'vis-plug'
 plug.init({
 	{ 'lutobler/vis-commentary' }, -- gcc
-	{ 'kupospelov/vis-ctags' }, -- ^], ^T, g^]
+	{ 'min4builder/vis-ctags' }, -- ^], ^T, g^]
 	{ 'erf/vis-cursors' },
---	{ 'seifferth/vis-editorconfig' },
+	{ 'seifferth/vis-editorconfig' },
 	{ 'erf/vis-highlight', alias = 'highlight' },
-	{ 'gitlab.com/mcepl/vis-jump' }, -- gx
+	{ 'min4builder/vis-jump' }, -- gx
 	{ 'lutobler/vis-modelines' },
-	{ 'repo.or.cz/vis-parkour.git', file = '', alias = 'parkour' },
+	{ 'repo.or.cz/vis-parkour.git', alias = 'parkour' },
 	{ 'ingolemo/vis-smart-backspace', alias = 'smart_backspace' },
 }, true)
 plug.plugins.highlight.patterns['[ \t]+$'] = { style = 'back:#880000' }
