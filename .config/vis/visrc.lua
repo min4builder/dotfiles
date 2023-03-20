@@ -3,7 +3,7 @@ require 'vis'
 local plug = require 'vis-plug'
 plug.init({
 	{ 'lutobler/vis-commentary' }, -- gcc
-	{ 'min4builder/vis-ctags' }, -- ^], ^T, g^]
+	{ 'kupospelov/vis-ctags' }, -- ^], ^T, g^]
 	{ 'erf/vis-cursors' },
 	{ 'seifferth/vis-editorconfig' },
 	{ 'erf/vis-highlight', alias = 'highlight' },
