@@ -1,4 +1,3 @@
 [submodule ".config/vis/vis-plug"]
 	path = .config/vis/vis-plug
-	url = https://github.com/min4builder/vis-plug
-	branch = import-module/master
+	url = https://github.com/erf/vis-plug
