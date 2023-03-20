@@ -44,4 +44,5 @@ feeds() {
 	feed "masahirosakurai" "https://www.youtube.com/feeds/videos.xml?channel_id=UCv1DvRY5PyHHt3KN9ghunuw"
 	feed "samdoesarts" "https://www.youtube.com/feeds/videos.xml?channel_id=UCNNOvB507MRfny7Jcv8MmOw"
 	feed "austinmcconnel" "https://www.youtube.com/feeds/videos.xml?channel_id=UCbxQcz9k0NRRuy0ukgQTDQQ"
+	feed "angethegreat" "https://www.youtube.com/feeds/videos.xml?channel_id=UCV0t1y4h_6-2SqEpXBXgwFQ"
 }
