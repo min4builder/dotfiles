@@ -1,0 +1,56 @@
+#!/bin/sh
+
+set -e
+
+[ "$#" = 1 ] && cd "$1"
+
+exec > index.html
+
+cat << EOF
+<!DOCTYPE html>
+<html>
+<head>
+  <title>$PWD - $0</title>
+  <style>
+    body {
+      background-color: #000000;
+      color: #ccccaa;
+      font-size: 20pt;
+    }
+    main {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .top {
+      width: 33%;
+    }
+    a, p, img {
+      width: 100%;
+    }
+    a {
+      color: #ccccaa;
+    }
+  </style>
+</head>
+<body>
+<main>
+EOF
+
+for file in *; do
+	[ ! "${file##index.html}" ] && continue
+	if [ ! "${file##*.png}" ]; then
+		echo "  <a class='top' href='$file'><img src='$file'/></a>"
+	elif [ ! "${file##*.links}" ]; then
+		cat "$file" | while read link desc; do
+			echo "  <a class='top' href='$link'>$desc</a>"
+		done
+	else
+		cat "$file" | while read desc; do
+			echo "  <p class='top'>$desc</p>"
+		done
+	fi
+done
