@@ -10,6 +10,7 @@ feeds() {
 	feed "zserge" "https://zserge.com/rss.xml" "https://zserge.com/"
 	feed "hydr8gon" "https://hydr8gon.github.io/feed.xml" "https://hydr8gon.github.io/"
 	feed "fabiensanglard" "https://www.fabiensanglard.net/rss.xml" "https://www.fabiensanglard.net/"
+	feed "ianthehenry" "https://ianthehenry.com/feed.xml"
 	feed "jdh" "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzQJ3JBuQ9w-po4TXRJHiA"
 	feed "janmisali" "https://www.youtube.com/feeds/videos.xml?channel_id=UCJOh5FKisc0hUlEeWFBlD-w"
 	feed "corridorcrew" "https://www.youtube.com/feeds/videos.xml?channel_id=UCSpFnDQr88xCZ80N-X7t0nQ"
@@ -45,4 +46,7 @@ feeds() {
 	feed "samdoesarts" "https://www.youtube.com/feeds/videos.xml?channel_id=UCNNOvB507MRfny7Jcv8MmOw"
 	feed "austinmcconnel" "https://www.youtube.com/feeds/videos.xml?channel_id=UCbxQcz9k0NRRuy0ukgQTDQQ"
 	feed "angethegreat" "https://www.youtube.com/feeds/videos.xml?channel_id=UCV0t1y4h_6-2SqEpXBXgwFQ"
+	feed "kazeemanuar" "https://www.youtube.com/feeds/videos.xml?channel_id=UCuvSqzfO_LV_QzHdmEj84SQ"
+	feed "jonnel" "https://www.youtube.com/feeds/videos.xml?channel_id=UCePjHk6fyiGS4Qr4YcVsq7Q"
+	feed "chommang" "https://www.youtube.com/feeds/videos.xml?channel_id=UCm5108VByLkHnu4-b-moBLQ"
 }
