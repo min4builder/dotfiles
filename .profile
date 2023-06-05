@@ -35,7 +35,7 @@ prompt_git_branch() {
 prompt_term_title() {
 	printf '\033]0;%s\033\\' "$(prompt_pwd)"
 }
-export PS1="$(printf '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(printf '\001\033[0m\001') \$(todo)\$(prompt_term_title)
+export PS1="$(printf '\001\r\001\033[1m\001')r \$(date +'%H:%M:%S') \$(prompt_status \"\$?\" \"level \$? \")at \$(prompt_pwd)\$(prompt_git_branch)$(printf '\001\033[0m\001') \$([ -f .todo ] && cat .todo)\$(prompt_term_title)
 "
 
 alias ls="ls --color=auto -F "

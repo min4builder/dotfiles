@@ -42,7 +42,7 @@ EOF
 
 for file in *; do
 	[ ! "${file##index.html}" ] && continue
-	if [ ! "${file##*.png}" ]; then
+	if [ ! "${file##*.png}" ] || [ ! "${file##*.jpg}" ]; then
 		echo "  <a class='top' href='$file'><img src='$file'/></a>"
 	elif [ ! "${file##*.links}" ]; then
 		cat "$file" | while read link desc; do

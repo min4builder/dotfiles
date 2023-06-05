@@ -1,7 +1,10 @@
 #!/bin/sh
 
-if test $# = 0; then
-	test -f .todo && cat .todo
+if [ $# = 0 ]; then
+	find -name .todo | sort | while read tf; do
+		echo -n "$(dirname "${tf#./}")	"
+		echo "$(cat "$tf")"
+	done
 else
 	echo "$@" > .todo
 fi
