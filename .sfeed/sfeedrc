@@ -48,4 +48,5 @@ feeds() {
 	feed "angethegreat" "https://www.youtube.com/feeds/videos.xml?channel_id=UCV0t1y4h_6-2SqEpXBXgwFQ"
 	feed "kazeemanuar" "https://www.youtube.com/feeds/videos.xml?channel_id=UCuvSqzfO_LV_QzHdmEj84SQ"
 	feed "jonnel" "https://www.youtube.com/feeds/videos.xml?channel_id=UCePjHk6fyiGS4Qr4YcVsq7Q"
+	feed "natsume__san" "https://www.youtube.com/feeds/videos.xml?channel_id=UC41LftdAfLvRlgehbP32LkA"
 }
