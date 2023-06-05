@@ -1,9 +1,13 @@
 #!/bin/sh
 
-sfeed_update
+set -e
+
+sfeed_update || true
+
 sfeed_plain ~/.sfeed/feeds/* | sed 's/^[N ] //g' | sort -r > ~/.sfeed/aggregate_new
+
 if [ -f ~/.sfeed/aggregate ]; then
-	diff ~/.sfeed/aggregate ~/.sfeed/aggregate_new | tail -n +3 | grep '^+' > ~/rss
+	diff ~/.sfeed/aggregate ~/.sfeed/aggregate_new | tail -n +3 | grep '^+' > ~/rss || echo "Nothing new."
 else
 	cp ~/.sfeed/aggregate_new ~/rss
 fi
