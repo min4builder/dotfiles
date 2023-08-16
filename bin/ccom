@@ -1,16 +1,39 @@
 #!/bin/sh
 
 CC=${CC:-gcc}
-CFLAGS=${CFLAGS:--g -Og -Wall -std=c11 -pedantic -Wno-unknown-pragmas}
+cflags='-g3 -Og -Wall -Wpedantic -Wextra -Wno-parentheses -Wno-unused-parameter -Wconversion -Wno-sign-conversion -Wno-unknown-pragmas -std=c11'
+
+set -e
+
+esc() {
+	for arg; do
+		printf " '%s'" "$(echo "$arg" | sed "s/'/'\\\\''/g")"
+	done
+}
 
 while [ ! "${1##-*}" ]; do
-	CFLAGS="$CFLAGS $1"
+	cflags="$cflags$(esc "$1")"
 	shift
 done
 
-LIBS=$(for i; do
-	"$CC" -E "$i" | grep '^# *pragma \+lib \+'
-done | sed 's/^# *pragma \+lib \+\(\w*\) *$/-l\1/g')
+libs=
+for arg; do
+	deps=$("$CC" -E "$arg" 2>/dev/null \
+		| sed -n 's/^# *pragma \+lib \+\(\w*\) *$/\1/p')
+	pc=
+	for dep in $deps; do
+		if pkg-config "$dep"; then
+			pc="$pc $dep"
+		else
+			libs="$libs -l$dep"
+		fi
+	done
+	if [ "$pc" ]; then
+		cflags="$cflags $(pkg-config --cflags $pc)"
+		libs="$libs $(pkg-config --libs $pc)"
+	fi
+done
 
-echo "$CC" $CFLAGS -o "${1%.c}" "$@" $LIBS
-"$CC" $CFLAGS -o "${1%.c}" "$@" $LIBS
+CMD="$CC $cflags -o$(esc "${1%.c}")$(esc "$@")$libs"
+printf '%s\n' "$CMD"
+eval "$CMD"
