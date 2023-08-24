@@ -13,7 +13,7 @@ set $stop_screencast killall -INT wf-recorder
 set $volup amixer set Master 10%+
 set $voldown amixer set Master 10%-
 
-exec autotiling -w 1 2 3 4 5 6 7 8 9
+exec exec autotiling -w 1 2 3 4 5 6 7 8 9
 exec exec kanshi
 exec $web
 
@@ -120,5 +120,5 @@ mode "resize" {
 
 bar {
 	strip_workspace_numbers yes
-	status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 60; done
+	status_command exec clock
 }

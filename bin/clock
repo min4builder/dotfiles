@@ -1,0 +1,11 @@
+#!/bin/sh
+
+fmt='%Y-%m-%d %I:%M %p'
+date +"$fmt"
+while :; do
+	while [ "$(date +%S)" != 00 ]; do
+		sleep 1
+	done
+	date +"$fmt"
+	sleep 59
+done
