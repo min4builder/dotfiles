@@ -22,6 +22,7 @@ include ~/.config/sway/${SHORTHOST}config
 assign [app_id="firefox"] 9:web
 assign [app_id="librewolf-default"] 9:web
 for_window [title="LibreWolf — Sharing Indicator"] kill
+assign [app_id="mpv"] 9:web
 assign [app_id="whatsapp"] 10:others
 assign [title="mail"] 10:others
 assign [title="music"] 10:others

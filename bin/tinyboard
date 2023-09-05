@@ -48,6 +48,8 @@ for file in *; do
 		cat "$file" | while read link desc; do
 			echo "  <a class='top' href='$link'>$desc</a>"
 		done
+	elif [ ! "${file##*.pdf}" ]; then
+		echo "  <a class='top' href='$file'>$file</a>"
 	else
 		cat "$file" | while read desc; do
 			echo "  <p class='top'>$desc</p>"

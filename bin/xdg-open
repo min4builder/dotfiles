@@ -1,10 +1,12 @@
 #!/bin/sh
 
-case "${1%%:*}" in
-	http|https|file)
-		exec "$BROWSER" "$1" &;;
+case "$1" in
+	https://www.youtube.com/watch\?v=*)
+		exec mpv --pause "$1" >/dev/null 2>&1 &;;
+	http://*|https://*|file://*)
+		exec "$BROWSER" "$1" >/dev/null 2>&1 &;;
 	*.pdf)
-		exec zathura "$1" &;;
+		exec "$BROWSER" "file://$(realpath "$1")" >/dev/null 2>&1 &;;
 	*)
-		exec /usr/bin/xdg-open "$@";;
+		exec /usr/bin/xdg-open "$@" &;;
 esac
